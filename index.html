@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <header class="header-container">
-        <button id="viewHigh" class="hidden">View High Score</button>
 
+    <header class="header-container">
+        <button id="viewHigh" class="hidden">View Scoreboard</button>
         <div id="timer" class="header-timer">
             <!-- Display the countdown timer in an element -->
             <progress id="progressBar" class="hidden"></progress>
@@ -24,22 +24,17 @@
 
     <div class="container">
         <h2>Coding Quiz</h2>
-
         <div id="question-container" class="hide">
             <div id="question"></div>
         </div>
-
         <ul id="scoreList"></ul>
-
         <!-- Radio Buttons -->
         <div class="controls">
             <input id="answer-true" class="hidden">
             <label for="answer-true" class="hidden">true</label><br>
-
             <input id="answer-false" class="hidden">
             <label for="answer-false" class="hidden">false</label><br>
         </div>
-        
         <!-- Page Buttons -->
         <button id="start">Start</button>
         <button id="next" class="hidden">Next</button>

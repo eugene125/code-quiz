@@ -1,94 +1,70 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
 
-html {
-  background-color: gray;
+body {
+  background-color: #28587B;
+  margin: 0;
+  padding: 0;
+}  
+
+header {
+  background-color: #F15946;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 1%;
+  width: 98%;
+}
+
+#question {
+  font-size: 1.4em;
 }
 
 h2 {
-  align-items: center;
-  font-size: 1.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- }
-progress {
-  background-color: crimson;
+  font-size: 1.7em;
+  margin: 3% 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
- }
-
-.header-container {
-  background-color: #005577;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
+button {
+  padding: .3% .5%;
+  margin: .3%;
 }
 
-.header-container button {
-  display: flex;
-  text-align: center;
-  padding: 5px 3px;
-  margin: 5px;
-  background-color: gray;
+#viewHigh {
+  padding: .3% .5%;
+  margin: 0%;
+  display: inherit;
 }
-  
-body {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  background-color: gray;
-}
-  
+
 .container {
-  display: block;
-  margin: 80px auto;
+  background-color: bisque;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 9% auto;
   text-align: center;
-  font-size: 30px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
   transition: 0.3s;
-  width: 40vw;
-  background-color: lightskyblue;
-}
-
-.container div {
-  margin: 20px;
-  margin-top: 3rem;
-  font-size: 1rem;
-  gap: 5px;
+  width: 75%;
 }
 
 #scoreList {
   list-style-type: none;
 }
-  
+
 .hidden {
   display: none;
 }
 
 .controls {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  text-align: center;
-  padding: 5px;
-  margin: 5px;
-  align-content: center;
+  padding: 1%;
+  margin: 1%;
 }
 
-.wrapper input label {
-  font-size: .5rem;
-}
-
-input {
-  display: flex;
-  flex-direction: column;
-}
-
-.hidden input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+label {
+  font-size: 1.2em;
+  margin-right: 2%;
 }
