@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./Assets/CSS/style.css" />
+
+    <title>Code Quiz</title>
+
+</head>
+
+<body>
+    <header class="header-container">
+        <button id="viewHigh" class="hidden">View High Score</button>
+
+        <div id="timer" class="header-timer">
+            <!-- Display the countdown timer in an element -->
+            <progress id="progressBar" class="hidden"></progress>
+            <div id="countdown" class="hidden"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Coding Quiz</h2>
+
+        <div id="question-container" class="hide">
+            <div id="question"></div>
+        </div>
+
+        <ul id="scoreList"></ul>
+
+        <!-- Radio Buttons -->
+        <div class="controls">
+            <input id="answer-true" class="hidden">
+            <label for="answer-true" class="hidden">true</label><br>
+
+            <input id="answer-false" class="hidden">
+            <label for="answer-false" class="hidden">false</label><br>
+        </div>
+        
+        <!-- Page Buttons -->
+        <button id="start">Start</button>
+        <button id="next" class="hidden">Next</button>
+        <button id="reset" class="hidden">Play Again</button>
+        <button id="resetScore" class="hidden">High Score Reset</button>
+    </div>
+    <script src="./Assets/JavaScript/script.js"></script>
+</body>
+
+</html>

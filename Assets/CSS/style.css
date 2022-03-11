@@ -1,0 +1,94 @@
+
+html {
+  background-color: gray;
+}
+
+h2 {
+  align-items: center;
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+progress {
+  background-color: crimson;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+.header-container {
+  background-color: #005577;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-container button {
+  display: flex;
+  text-align: center;
+  padding: 5px 3px;
+  margin: 5px;
+  background-color: gray;
+}
+  
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  background-color: gray;
+}
+  
+.container {
+  display: block;
+  margin: 80px auto;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+  transition: 0.3s;
+  width: 40vw;
+  background-color: lightskyblue;
+}
+
+.container div {
+  margin: 20px;
+  margin-top: 3rem;
+  font-size: 1rem;
+  gap: 5px;
+}
+
+#scoreList {
+  list-style-type: none;
+}
+  
+.hidden {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  align-content: center;
+}
+
+.wrapper input label {
+  font-size: .5rem;
+}
+
+input {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
