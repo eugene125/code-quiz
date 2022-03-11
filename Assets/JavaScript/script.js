@@ -1,11 +1,11 @@
 // HTML DOM Get modifiers
-let startButton = document.getElementById('start');
-let scoreboardButton = document.getElementById('viewHigh')
-let nextButton = document.getElementById('next');
-let resetButton = document.getElementById('reset')
-let answerTrue = document.getElementById('answer-true');
-let answerFalse = document.getElementById('answer-false');
-let questionElement = document.getElementById('question');
+let startBtn = document.getElementById('start');
+let scoreboardBtn = document.getElementById('viewHigh')
+let nextBtn = document.getElementById('next');
+let resetBtn = document.getElementById('reset')
+let selectTrue = document.getElementById('answer-true');
+let selectFalse = document.getElementById('answer-false');
+let questionEl = document.getElementById('question');
 let progressBar = document.getElementById('progressBar');
 let countdown = document.getElementById('countdown');
 let resetScore = document.getElementById('resetScore')
@@ -20,30 +20,30 @@ input[0].setAttribute('type', 'radio', 'name', 'True', 'value', 'true');
 input[1].setAttribute('type', 'radio', 'name', 'False', 'value', 'false');
 
 // Event Listeners
-startButton.addEventListener('click', startQuiz)
-nextButton.addEventListener('click', nextQuestion)
-scoreboardButton.addEventListener('click', displayScoreboard)
-resetButton.addEventListener('click', resetPage)
+startBtn.addEventListener('click', startQuiz)
+nextBtn.addEventListener('click', nextQuestion)
+scoreboardBtn.addEventListener('click', displayScoreboard)
+resetBtn.addEventListener('click', resetPage)
 
-answerTrue.addEventListener('click', buttonTrueCheck)
-answerFalse.addEventListener('click', buttonFalseCheck)
+selectTrue.addEventListener('click', buttonTrueCheck)
+selectFalse.addEventListener('click', buttonFalseCheck)
 
 // Global Variables
-let secondsLeft = 60; // Timer initial setting
+let remainingSeconds = 60; // The initial amount of seconds when starting the quiz
 let questionIndex = 0; // Question array index
-let answers = [] // Input answers empty array
-let scoreboard = []
-let vis = 0;  // //Increment visibility value
-let downloadTimer // timer variable
+let answers = [] // An empty array to enter in the answer choices
+let scoreboard = [] // An empty array to enter in the score values
+let vis = 0;  // This sets the visibility to zero by default to only show the start and scoreboard button
+let downloadTimer // This is a variable for the timer
 
-// First time initalization including timer start
+// This function initiates the timer and the question display while switching the start button to a next button
 function startQuiz() {
   visibility(vis)
   startTimer();
   showQuestion(questionBank[questionIndex])
 }
 
-// Helper function to advance question state
+// This function cycles through the questions
 function nextQuestion() {
   if (questionIndex >= questionBank.length - 1) {
     vis++;
@@ -62,32 +62,32 @@ function nextQuestion() {
 }
 
 function showQuestion(question) {
-  questionElement.innerText = question.prompt
+  questionEl.innerText = question.prompt
 }
 
 // check state of radio box and sets true and false value
 function checkValue() {
   let selectedAnswer;
-  if (answerTrue.checked) {
+  if (selectTrue.checked) {
     selectedAnswer = 'true';
   }
-  if (answerFalse.checked) {
+  if (selectFalse.checked) {
     selectedAnswer = 'false';
   }
   return selectedAnswer;
 }
 
-// decrement time value on false answers
+// This takes time off of the timer when the user chooses the wrong answer
 function penalty() {
   let i = questionIndex
 
   if (answers.slice(-1) != questionBank[i].answer) {
-    secondsLeft -= 10;
+    remainingSeconds -= 10;
   }
   return;
 }
 
-// Calc total score by comparing given answers with answers in question bank
+// This function calculates the total score by comparing the users answers with the answers in the question bank
 function calcScore(score) {
   let grade = 0;
   let trueAnswers = 0
@@ -145,24 +145,24 @@ function displayScoreboard() {
 
 // cleanup HTML back to baseline
 function resetQuestionState() {
-  answerTrue.checked = false;
-  answerFalse.checked = false;
+  selectTrue.checked = false;
+  selectFalse.checked = false;
 }
 
-// prevent both buttons from being selected at same time
+// This function prevents both true and false from being chosen
 function buttonTrueCheck() {
-  if (answerTrue.checked) {
-    answerFalse.checked = false;
+  if (selectTrue.checked) {
+    selectFalse.checked = false;
   }
 }
 
 function buttonFalseCheck() {
-  if (answerFalse.checked) {
-    answerTrue.checked = false;
+  if (selectFalse.checked) {
+    selectTrue.checked = false;
   }
 }
 
-// Reset page when try again is selected
+// This function reloads the web page
 function resetPage() {
   location.reload();
 }
@@ -171,8 +171,8 @@ function resetPage() {
 // Start of quiz
 function visibility(value) {
   if (value === 0) {
-    startButton.classList.add('hidden');
-    nextButton.classList.remove('hidden');
+    startBtn.classList.add('hidden');
+    nextBtn.classList.remove('hidden');
     labels[0].classList.remove('hidden');
     labels[1].classList.remove('hidden');
     input[0].classList.remove('hidden');
@@ -183,38 +183,38 @@ function visibility(value) {
 
   // All Questions complete
   if (value === 1) {
-    nextButton.classList.add('hidden')
+    nextBtn.classList.add('hidden')
     labels[0].classList.add('hidden')
     labels[1].classList.add('hidden')
     input[0].classList.add('hidden')
     input[1].classList.add('hidden')
     progressBar.classList.add('hidden')
     countdown.classList.add('hidden')
-    scoreboardButton.classList.remove("hidden")
+    scoreboardBtn.classList.remove("hidden")
   }
 
-  // Quiz Complete, screen cleared all except Try again
+  // When the quiz is completed, the reset quiz button appears
   if (value === 2) {
-    resetButton.classList.remove('hidden')
-    questionElement.classList.add('hidden')
+    resetBtn.classList.remove('hidden')
+    questionEl.classList.add('hidden')
   }
 
-  // Quiz not complete, but time has run out settings
+  // When the quiz is not finished in the time limit, the reset button displays so the user can restart
   if (value === 3) {
-    nextButton.classList.add('hidden')
+    nextBtn.classList.add('hidden')
     labels[0].classList.add('hidden')
     labels[1].classList.add('hidden')
     input[0].classList.add('hidden')
     input[1].classList.add('hidden')
     progressBar.classList.add('hidden')
     countdown.classList.add('hidden')
-    scoreboardButton.classList.remove("hidden")
-    resetButton.classList.remove('hidden')
-    questionElement.classList.add('hidden')
+    scoreboardBtn.classList.remove("hidden")
+    resetBtn.classList.remove('hidden')
+    questionEl.classList.add('hidden')
   }
 }
 
-//Questions / Answers Array of Objects
+// The questionBank is an array that contains objects of the questions and answers
 let questionBank = [
   {
     prompt: 'HTML stands for "Hey Thats My Lunch!"',
@@ -241,7 +241,7 @@ let questionBank = [
 // This function will start the timer countdown
 function startTimer() {
   downloadTimer = setInterval(function () {
-    if (secondsLeft <= 0) {
+    if (remainingSeconds <= 0) {
       clearInterval(downloadTimer);
       document.getElementById('countdown').innerHTML = 'Times Up';
       if (answers.length < questionBank) {
@@ -250,9 +250,9 @@ function startTimer() {
       calcScore(answers);
     }
     else {
-      document.getElementById('countdown').innerHTML = secondsLeft + ' seconds remaining';
-      progressBar.value = secondsLeft;
+      document.getElementById('countdown').innerHTML = remainingSeconds + ' seconds remaining';
+      progressBar.value = remainingSeconds;
     }
-    secondsLeft -= 1;
+    remainingSeconds -= 1;
   }, 1000);
 }
