@@ -16,8 +16,8 @@ My objective for this assignment was to create an interactive coding quiz. In th
 ![This is a screenshot of the scoreboard](./Assets/Images/code_quiz_scoreboard.png)
 
 ## Final Page Link
-[Code quiz deployed](https://eugene125.github.io/code-quiz/)
-[Code quiz repository](https://github.com/eugene125/code-quiz)
+- [Code quiz deployed](https://eugene125.github.io/code-quiz/)
+- [Code quiz repository](https://github.com/eugene125/code-quiz)
 
 ## Contributors
 - Kelly Jefferies
